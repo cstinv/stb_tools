@@ -20,9 +20,9 @@ case "$1" in
       update-rc.d apply_noobs_os_config remove
       rm /etc/init.d/apply_noobs_os_config
       log_end_msg 0
-	  sudo sed -i 's/XKBLAYOUT.*/XKBLAYOUT="fi"/' /etc/default/keyboard
-	  sudo sed -i 's/rootwait/rootwait usbhid.mousepoll=0/' /boot/cmdline.txt
-      . /etc/init.d/init_home_directory.sh
+	  cd /etc/init.d
+	  sudo wget https://github.com/cstinv/stbdev/raw/master/init_stb/init_stb_config.sh
+      /etc/init.d/init_stb_config.sh
     else
       log_end_msg 1
     fi

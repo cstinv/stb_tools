@@ -20,8 +20,16 @@ case "$1" in
       update-rc.d apply_noobs_os_config remove
       rm /etc/init.d/apply_noobs_os_config
       log_end_msg 0
-	  cd /etc/init.d
-	  sudo wget https://github.com/cstinv/stbdev/raw/master/init_stb/init_stb_config.sh
+      cd /etc/init.d
+      for (( i=1; i <= 10; i++ ))
+      do
+        log_daemon_msg "Trying to get init_stb_config file using wget. Try $1" 
+        sudo wget https://github.com/cstinv/stbdev/raw/master/init_stb/init_stb_config.sh
+        if [ -f /etc/init.d/init_stb_config.sh ]; then
+          break;
+        fi
+        sleep 1
+      done
       /etc/init.d/init_stb_config.sh
     else
       log_end_msg 1

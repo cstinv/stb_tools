@@ -30,7 +30,7 @@ case "$1" in
         fi
         sleep 1
       done
-      sudo /etc/init.d/init_stb_config.sh
+      . /etc/init.d/init_stb_config.sh
       log_end_msg 0
     else
       log_end_msg 1

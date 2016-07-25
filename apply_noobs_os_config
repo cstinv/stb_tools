@@ -30,6 +30,7 @@ case "$1" in
         fi
         sleep 1
       done
+	  chmod 774 init_stb_config.sh
       . /etc/init.d/init_stb_config.sh
       log_end_msg 0
     else

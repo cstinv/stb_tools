@@ -22,7 +22,7 @@ case "$1" in
       cd /etc/init.d
       for i in `seq 1 45`
       do
-        log_daemon_msg "Trying to get init_stb_config file using wget. Try $1" 
+        log_daemon_msg "Trying to get init_stb_config file using wget. Try $i" 
         sudo wget https://github.com/cstinv/stbdev/raw/master/init_stb/init_stb_config.sh
         if [ -f /etc/init.d/init_stb_config.sh ]; then
           break;
